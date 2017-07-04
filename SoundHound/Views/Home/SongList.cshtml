@@ -1,0 +1,25 @@
+﻿@model List<SoundHound.Models.Song>
+@{
+    ViewBag.Title = "SongList";
+}
+
+@*This will create a row for each song in our Model*@
+<h2>Song List</h2>
+<table class=" table table-striped">
+    <tr>
+        <th>Song</th>
+        <th>Artists</th>
+        <th>Key</th>
+        <th>BPM</th>
+    </tr>
+    @foreach( var song in Model)
+    {
+        <tr>
+            <td>@song.SongTitle</td>
+            <td>@song.Artist</td>
+            <td>@song.Key</td>
+            <td>@song.BPM</td>
+        </tr>
+    }
+</table>
+

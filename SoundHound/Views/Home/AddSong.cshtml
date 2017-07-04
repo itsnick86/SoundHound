@@ -1,0 +1,25 @@
+﻿@model SoundHound.Models.Song
+@{
+    ViewBag.Title = "AddSong";
+}
+
+@*Creates a form where you can enter in a song*@
+<h2>Add Song</h2>
+
+<div class="jumbotron">
+    <h1>Add a Song</h1>
+    @using (var form = Html.BeginForm("AddSong", "Home"))
+    {
+        <p>Song: @Html.TextBoxFor(x => x.SongTitle)</p>
+        <br />
+        <p>Artist: @Html.TextBoxFor(x => x.Artist)</p>
+        <br />
+        <p>Key: @Html.TextBoxFor(x => x.Key)</p>
+        <br />
+        <p>BPM: @Html.TextBoxFor(x => x.BPM)</p>
+        <br />
+        <input type="submit" value="Add Song" name="submitSong"/>
+
+    }
+</div>
+
