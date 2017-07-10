@@ -191,6 +191,7 @@
     <Content Include="Views\Home\AddSong.cshtml" />
     <Content Include="Views\Home\SongList.cshtml" />
     <Content Include="Views\Home\SingleSong.cshtml" />
+    <Content Include="Views\Home\EditSong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

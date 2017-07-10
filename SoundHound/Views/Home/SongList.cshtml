@@ -11,6 +11,7 @@
         <th>Artist</th>
         <th>Key</th>
         <th>BPM</th>
+        <th></th>
     </tr>
     @foreach( var song in Model)
     {
@@ -19,6 +20,7 @@
             <td>@song.Artist</td>
             <td>@song.SongKey</td>
             <td>@song.BPM</td>
+            <td>@Html.ActionLink("Edit Song", "EditSong", new { id = song.ID })</td> @*--Adds Edit button*@
         </tr>
     }
 </table>
