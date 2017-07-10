@@ -1,9 +1,12 @@
 ﻿using SoundHound.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Dapper;
 
 namespace SoundHound.Controllers
 {
@@ -40,19 +43,37 @@ namespace SoundHound.Controllers
             return View("SingleSong", song);
         }
 
-        public ActionResult ViewSongs()
+        public ActionResult YourSongs()
         {
-            return View("SongList", _songRepository._songs);
+            return View("SongList", _songRepository.Songs);
         }
 
         //Class to help store Song list
         public class SongRepository
         {
-            public List<Song> _songs = new List<Song>();
 
             public void AddSong(Song song)
             {
-                _songs.Add(song);
+                using (var connection = CreateConnection())
+                {
+                    connection.Execute("INSERT INTO SONGS (SONGTITLE, ARTIST, SONGKEY, BPM) VALUES (@songtitle, @artist, @songkey, @BPM)", new { songtitle = song.SongTitle, artist = song.Artist, songkey = song.SongKey, BPM = song.BPM });
+                }
+            }
+
+            public List<Song> Songs
+            {
+                get
+                {
+                    using (var connection = CreateConnection())
+                    {
+                        return connection.Query<Song>("SELECT * FROM SONGS").ToList();
+                    }
+                }
+            }
+
+            private IDbConnection CreateConnection()
+            {
+                return new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=SoundHound;Trusted_Connection=True");
             }
         }
     }

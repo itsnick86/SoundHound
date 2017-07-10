@@ -9,11 +9,13 @@ namespace SoundHound.Models
 {
     public class Song
     {
+        public int ID { get; set; }
+
         public string SongTitle { get; set; }
 
         public string Artist { get; set; }
 
-        public string Key { get; set; }
+        public string SongKey { get; set; }
 
         public int BPM { get; set; }
     }
