@@ -8,22 +8,22 @@
     <h2 class="text-center">Your Song List</h2>
     <table class=" table table-responsive">
         <tr>
-            <th>Song</th>
-            <th>Artist</th>
-            <th class="hidden-xs">Key</th>
-            <th>BPM</th>
+            <th class="text-center">Song</th>
+            <th class="text-center">Artist</th>
+            <th class="text-center hidden-xs">Key</th>
+            <th class="text-center">BPM</th>
             <th></th>
             <th></th>
         </tr>
         @foreach (var song in Model)
         {
             <tr>
-                <td>@song.SongTitle</td>
-                <td>@song.Artist</td>
-                <td class="hidden-xs">@song.SongKey</td>
-                <td>@song.BPM</td>
-                <td><button type="button" class="btn btn-warning">@Html.ActionLink("Edit", "EditSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td> @*--Adds Edit button*@
-                <td><button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "DeleteSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td> @*--Adds Delete button*@
+                <td class="text-center">@song.SongTitle</td>
+                <td class="text-center">@song.Artist</td>
+                <td class="text-center hidden-xs">@song.SongKey</td>
+                <td class="text-center">@song.BPM</td>
+                <td class="text-right"><button type="button" class="btn btn-warning">@Html.ActionLink("Edit", "EditSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td> @*--Adds Edit button*@
+                <td class="text-left"><button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "DeleteSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td> @*--Adds Delete button*@
             </tr>
         }
     </table>
