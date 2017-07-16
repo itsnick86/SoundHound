@@ -3,7 +3,7 @@
     ViewBag.Title = "SongList";
 }
 
-@*This will create a row for each song in our Model*@
+@*This will create a new row for each song in our Model*@
 <div id="Layout">
     <h2 class="text-center">Your Song List</h2>
     <table class=" table table-responsive">
@@ -22,8 +22,10 @@
                 <td class="text-center">@song.Artist</td>
                 <td class="text-center hidden-xs">@song.SongKey</td>
                 <td class="text-center">@song.BPM</td>
-                <td class="text-right"><button type="button" class="btn btn-warning">@Html.ActionLink("Edit", "EditSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td> @*--Adds Edit button*@
-                <td class="text-left"><button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "DeleteSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td> @*--Adds Delete button*@
+                @*--Adds Edit button that when selected takes the user to the Edit song page*@
+                <td class="text-right"><button type="button" class="btn btn-warning">@Html.ActionLink("Edit", "EditSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td>
+                @*--Adds Delete button. When selected will remove the song from the list*@
+                <td class="text-left"><button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "DeleteSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td>
             </tr>
         }
     </table>

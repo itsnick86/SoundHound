@@ -8,7 +8,7 @@ using System.Web;
 
 namespace SoundHound.Repositories
 {
-    //Class to help store Song list
+    //Class to help store, edit, and delete items from the Song list
     public class SongRepository : DbContext
     {
 

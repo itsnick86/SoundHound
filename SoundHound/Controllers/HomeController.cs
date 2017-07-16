@@ -18,25 +18,12 @@ namespace SoundHound.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         public ActionResult CreateSong()
         {
             return View("AddSong");
         }
 
+        // After the user enters information into the AddSong view and selects the Add Song button the information will be added to the SongRepository
         public ActionResult AddSong(Song song)
         {
             using (var repo = new SongRepository())
@@ -46,6 +33,7 @@ namespace SoundHound.Controllers
             }
         }
 
+        // Returns the SongList view and shows the list of songs saved in the SongRepository
         public ActionResult YourSongs()
         {
             using (var repo = new SongRepository())
@@ -54,6 +42,7 @@ namespace SoundHound.Controllers
             }
         }
 
+        // Changes current view to the EditSong view when the user selects the Edit Button
         public ActionResult EditSong(int id)
         {
             using (var repo = new SongRepository())
@@ -62,6 +51,7 @@ namespace SoundHound.Controllers
             }
         }
 
+        // After the user selects the Update Song button in the EditSong view it will update the SongRepository with the changes
         public ActionResult ChangeSong(Song song)
         {
             using (var repo = new SongRepository())
@@ -71,6 +61,7 @@ namespace SoundHound.Controllers
             }
         }
 
+        // Removes songs from the SongList when the user selects the Delete Button
         public ActionResult DeleteSong(Song song)
         {
             using (var repo = new SongRepository())
