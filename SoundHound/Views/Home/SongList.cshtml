@@ -4,26 +4,28 @@
 }
 
 @*This will create a row for each song in our Model*@
-<h2>Song List</h2>
-<table class=" table table-striped">
-    <tr>
-        <th>Song</th>
-        <th>Artist</th>
-        <th>Key</th>
-        <th>BPM</th>
-        <th></th>
-        <th></th>
-    </tr>
-    @foreach( var song in Model)
-    {
+<div id="Layout">
+    <h2 class="text-center">Your Song List</h2>
+    <table class=" table table-responsive">
         <tr>
-            <td>@song.SongTitle</td>
-            <td>@song.Artist</td>
-            <td>@song.SongKey</td>
-            <td>@song.BPM</td>
-            <td>@Html.ActionLink("Edit Song", "EditSong", new { id = song.ID })</td> @*--Adds Edit button*@
-            <td>@Html.ActionLink("Delete Song", "DeleteSong", new { id = song.ID })</td> @*--Adds Delete button*@
+            <th>Song</th>
+            <th>Artist</th>
+            <th class="hidden-xs">Key</th>
+            <th>BPM</th>
+            <th></th>
+            <th></th>
         </tr>
-    }
-</table>
+        @foreach (var song in Model)
+        {
+            <tr>
+                <td>@song.SongTitle</td>
+                <td>@song.Artist</td>
+                <td class="hidden-xs">@song.SongKey</td>
+                <td>@song.BPM</td>
+                <td><button type="button" class="btn btn-warning">@Html.ActionLink("Edit", "EditSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td> @*--Adds Edit button*@
+                <td><button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "DeleteSong", new { id = song.ID }, new { style = "text-decoration:none; color:white;" })</button></td> @*--Adds Delete button*@
+            </tr>
+        }
+    </table>
+</div>
 

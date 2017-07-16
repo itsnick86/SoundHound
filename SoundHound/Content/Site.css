@@ -1,12 +1,12 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,3 +22,24 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*Changes the background color and text color for each page*/ 
+#Layout {
+    color: white;
+    background-color: steelblue;
+}
+
+/*Changes default decoration of links*/ 
+#Button {
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 25%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+

@@ -4,20 +4,22 @@
 }
 
 @*Creates a form where you can enter in a song*@
-<div class="jumbotron">
-    <h1>Add a Song</h1>
+<div id="Layout" class="jumbotron">
+    <h2 class="text-center">Enter a song to add to your list</h2>
+    <br />
     @using (var form = Html.BeginForm("AddSong", "Home"))
     {
-        <p>Song: @Html.TextBoxFor(x => x.SongTitle)</p>
+        <p class="text-center">Song: @Html.TextBoxFor(x => x.SongTitle)</p>
         <br />
-        <p>Artist: @Html.TextBoxFor(x => x.Artist)</p>
+        <p class="text-center">Artist: @Html.TextBoxFor(x => x.Artist)</p>
         <br />
-        <p>Key: @Html.TextBoxFor(x => x.SongKey)</p>
+        <p class="text-center">Key: @Html.TextBoxFor(x => x.SongKey)</p>
         <br />
-        <p>BPM: @Html.TextBoxFor(x => x.BPM)</p>
+        <p class="text-center">BPM: @Html.TextBoxFor(x => x.BPM)</p>
         <br />
-        <input type="submit" value="Add Song" name="submitSong"/>
-
+        <div class="text-center">
+            <input class="btn btn-success btn-lg" type="submit" value="Add Song" name="submitSong" />
+        </div>
     }
 </div>
 

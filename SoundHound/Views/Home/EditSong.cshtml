@@ -4,20 +4,23 @@
 }
 
 @*Creates a form where you can edit a song*@
-<div class="jumbotron">
-    <h1>Edit Song</h1>
+<div id="Layout" class="jumbotron">
+    <h2 class="text-center">Make updates to your song below</h2>
+    <br />
     @using (var form = Html.BeginForm("ChangeSong", "Home"))
     {
         @Html.HiddenFor(x => x.ID)
-        <p>Song: @Html.TextBoxFor(x => x.SongTitle)</p>
+        <p class="text-center">Song: @Html.TextBoxFor(x => x.SongTitle)</p>
         <br />
-        <p>Artist: @Html.TextBoxFor(x => x.Artist)</p>
+        <p class="text-center">Artist: @Html.TextBoxFor(x => x.Artist)</p>
         <br />
-        <p>Key: @Html.TextBoxFor(x => x.SongKey)</p>
+        <p class="text-center">Key: @Html.TextBoxFor(x => x.SongKey)</p>
         <br />
-        <p>BPM: @Html.TextBoxFor(x => x.BPM)</p>
+        <p class="text-center">BPM: @Html.TextBoxFor(x => x.BPM)</p>
         <br />
-        <input type="submit" value="Update Song" name="submitSong"/>
+        <div class="text-center">
+            <input class="btn btn-success btn-lg" type="submit" value="Update Song" name="submitSong" />
+        </div>
 
     }
 </div>
